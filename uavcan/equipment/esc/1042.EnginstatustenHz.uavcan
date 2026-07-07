@@ -1,0 +1,165 @@
+#
+# Generic ESC status.
+# Unknown fields should be set to NAN.
+#
+# 空燃比
+float16 lambda_a
+float16 lambda_b
+# 喷油嘴工作时长
+float16 fuel_inj_work_hours_a
+float16 fuel_inj_work_hours_b
+# 喷油嘴工作状态
+uint8 fuel_inj_work_sta_a
+uint8 fuel_inj_work_sta_b
+# 燃油压力
+float16 fuel_pre
+# 机油压力
+float16 oil_pre
+# 机油温度
+uint8 Oil_Temp
+# 发动机扭矩
+uint8 engine_torque
+# 增压温度
+uint8 boost_temp
+# 增压压力
+float16 boost_pre
+# 废气阀开度
+float16 exh_valve_opening
+# 环境温度
+uint8 ambient_temp
+# 大气压力
+float16 atmospheric_pre_a
+float16 atmospheric_pre_b
+# 供电电压
+float16 supply_voltag_a
+float16 supply_voltag_b
+# 1-4缸排气温度
+uint16 cyl_exh_temp_1
+uint16 cyl_exh_temp_2
+uint16 cyl_exh_temp_3
+uint16 cyl_exh_temp_4
+# 滑油液位传感器输出值
+uint8 output_val_of_oil_level_sens_mm
+# 应急状态倒计时
+uint16 emergstatime_count_a
+uint16 emergstatime_count_b
+# 控制系统上报-旋翼转速
+# float16 propeller_speed
+# 发动机动力模式请求值确认返回
+uint8 engine_powermode_req_a
+uint8 engine_powermode_req_b
+# 节气门开度请求确认返回
+uint16 throttle_opening_req_val_a
+uint16 throttle_opening_req_val_b
+# 转速请求值
+uint16 speed_req_val_a
+uint16 speed_req_val_b
+# 废气阀目标位置
+float16 flash_rwgvopntgt
+# 目标增压压力
+float16 bpc_pdesval
+# 控制系统上报-发动机目标/实际运行状态
+uint8 engine_aim_atl_ctlstatus_a
+uint8 engine_aim_atl_ctlstatus_b
+    # bit0: 控制系统上报-发动机目标状态
+    # bit1: 控制系统上报-发动机目标状态
+    # bit2: 控制系统上报-发动机目标状态
+    # bit3: 控制系统上报-发动机目标状态
+    # bit4: 控制系统上报-发动机实际运行状态
+    # bit5: 控制系统上报-发动机实际运行状态
+    # bit6: 控制系统上报-发动机实际运行状态
+    # bit7: 控制系统上报-发动机实际运行状态
+# 超速/超压保护状态
+uint8 over_boost_speed_sta
+    # bit0: Over_Boost
+    # bit1: Over_Boost
+    # bit2: Over_Boost
+    # bit3: Over_Boost
+    # bit4: Over_Speed
+    # bit5: Over_Speed
+    # bit6: Over_Speed
+    # bit7: Over_Speed
+# 点火使能
+uint8 ign_enable_state
+    # bit0: 点火使能1
+    # bit1: 点火使能1
+    # bit2: 点火使能1
+    # bit3: 点火使能1
+    # bit4: 点火使能2
+    # bit5: 点火使能2
+    # bit6: 点火使能2
+    # bit7: 点火使能2
+# 故障状态
+uint8 sens_state_oxygen
+    # bit0: 故障状态-氧传感器A
+    # bit1: 故障状态-氧传感器A
+    # bit2: 故障状态-氧传感器B
+    # bit3: 故障状态-氧传感器B
+    # bit4: 故障状态-滑油液位传感器
+    # bit5: 故障状态-滑油液位传感器
+    # bit6: 
+    # bit7: 
+uint8 sens_state_cyl_exh_temp
+    # bit0: 故障状态-1缸排温传感器
+    # bit1: 故障状态-1缸排温传感器
+    # bit2: 故障状态-2缸排温传感器
+    # bit3: 故障状态-2缸排温传感器
+    # bit4: 故障状态-3缸排温传感器
+    # bit5: 故障状态-3缸排温传感器
+    # bit6: 故障状态-4缸排温传感器
+    # bit7: 故障状态-4缸排温传感器
+uint8 sens_state_oil_fuel
+    # bit0: 故障状态-机油压力传感器
+    # bit1: 故障状态-机油压力传感器
+    # bit2: 故障状态-燃油压力传感器
+    # bit3: 故障状态-燃油压力传感器
+    # bit4: 故障状态-机油温度传感器
+    # bit5: 故障状态-机油温度传感器
+    # bit6: 
+    # bit7:
+uint8 sens_state_boost_exh
+    # bit0: 故障状态-增压压力传感器
+    # bit1: 故障状态-增压压力传感器
+    # bit2: 故障状态-增压温度传感器
+    # bit3: 故障状态-增压温度传感器
+    # bit4: 故障状态-废气阀电机位置传感器
+    # bit5: 故障状态-废气阀电机位置传感器
+    # bit6: 故障状态-废气阀电机
+    # bit7: 故障状态-废气阀电机
+uint8 sens_state_atmospheric_temp
+    # bit0: 故障状态-大气压力传感器
+    # bit1: 故障状态-大气压力传感器
+    # bit2: 故障状态-B大气压力传感器
+    # bit3: 故障状态-B大气压力传感器
+    # bit4: 故障状态-环境温度传感器
+    # bit5: 故障状态-环境温度传感器
+    # bit6: 
+    # bit7: 
+uint8 msg_state_can
+    # bit0: CAN通信1故障状态ECUA
+    # bit1: CAN通信1故障状态ECUA
+    # bit2: CAN通信2故障状态ECUA
+    # bit3: CAN通信2故障状态ECUA
+    # bit4: CAN通信1故障状态ECUB
+    # bit5: CAN通信1故障状态ECUB
+    # bit6: CAN通信2故障状态ECUB
+    # bit7: CAN通信2故障状态ECUB
+uint8 msg_volt_state_422_volt
+    # bit0: RS422通信故障状态ECUA
+    # bit1: RS422通信故障状态ECUA
+    # bit2: 电压故障ECUA
+    # bit3: 电压故障ECUA
+    # bit4: RS422通信故障状态ECUB
+    # bit5: RS422通信故障状态ECUB
+    # bit6: 电压故障ECUB
+    # bit7: 电压故障ECUB
+
+float16 voltage             # Volt
+float16 current             # Ampere. Can be negative in case of a regenerative braking.
+float16 temperature         # Kelvin
+
+int18 rpm                   # Negative value indicates reverse rotation
+
+uint7 power_rating_pct      # Instant demand factor in percent (percent of maximum power); range 0% to 127%.
+
+uint5 esc_index             # zero is first ESC. This should match the index into the cmd[] array in RawCommand

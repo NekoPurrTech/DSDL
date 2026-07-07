@@ -1,0 +1,123 @@
+#
+# Generic ESC status.
+# Unknown fields should be set to NAN.
+#
+# 放engine state，RPM，manifold pressure，throttle，coolant temp，oil pressure，fuel pressure
+# 发动机状态、转速、进气歧管压力、节气门、冷却液温度、机油压力、燃油压力
+
+# 歧管温度 ℃
+uint8 manifold_temp_a_c	
+uint8 manifold_temp_b_c	
+# 歧管压力 kPa
+float16 manifold_pre_a_kpa	
+float16 manifold_pre_b_kpa
+# 1-4缸冷却液温度
+uint8 cyl_coolant_temp_1_c
+uint8 cyl_coolant_temp_2_c
+uint8 cyl_coolant_temp_3_c
+uint8 cyl_coolant_temp_4_c
+# 发动机转速 r/min
+uint16 engine_speed_a_rpm
+uint16 engine_speed_b_rpm
+# 节气门位置传感器	%
+float16 throttle_pos_sens_a_per
+float16 throttle_pos_sens_b_per
+# 转速请求值发送
+uint16 speed_send_val_rpm
+# 节气门开度请求值发送
+float16 throttle_opening_send_val
+# 发动机动力模式
+uint8 engine_powermode_a
+uint8 engine_powermode_b
+# ECUA计算的瞬时油耗 L/h
+float16 instantaneous_fuel_consp_a
+# ECUA小计油耗（脉宽） s
+uint16 average_fuel_consp_a
+# ECUB计算的瞬时油耗 L/h
+float16 instantaneous_fuel_consp_b
+# ECUB小计油耗（脉宽） s
+uint16 average_fuel_consp_b
+# 故障状态 8 * uint8
+uint8 sens_state_manifold
+    # bit0: 故障状态-歧管压力传感器AECU
+    # bit1: 故障状态-歧管压力传感器AECU
+    # bit2: 故障状态-歧管压力传感器BECU
+    # bit3: 故障状态-歧管压力传感器BECU
+    # bit4: 故障状态-歧管温度传感器AECU
+    # bit5: 故障状态-歧管温度传感器AECU
+    # bit6: 故障状态-歧管温度传感器BECU
+    # bit7: 故障状态-歧管温度传感器BECU
+uint8 sens_state_coolant
+    # bit0: 故障状态-1缸冷却液温度传感器
+    # bit1: 故障状态-1缸冷却液温度传感器
+    # bit2: 故障状态-2缸冷却液温度传感器
+    # bit3: 故障状态-2缸冷却液温度传感器
+    # bit4: 故障状态-3缸冷却液传感器
+    # bit5: 故障状态-3缸冷却液传感器
+    # bit6: 故障状态-4缸冷却液传感器
+    # bit7: 故障状态-4缸冷却液传感器
+uint8 sens_state_throttle
+    # bit0: 故障状态-节气门A位置传感器
+    # bit1: 故障状态-节气门A位置传感器
+    # bit2: 故障状态-节气门电机
+    # bit3: 故障状态-节气门电机
+    # bit4: 节气门B位置故障
+    # bit5: 节气门B位置故障
+    # bit6: 
+    # bit7: 
+uint8 sens_state_curved_knock
+    # bit0: 故障状态-曲位传感器
+    # bit1: 故障状态-曲位传感器
+    # bit2: 故障状态-爆震传感器
+    # bit3: 故障状态-爆震传感器
+    # bit4: 故障状态-曲位传感器B
+    # bit5: 故障状态-曲位传感器B
+    # bit6: 爆震发生状态
+    # bit7: 爆震发生状态
+uint8 sens_state_inj_a
+    # bit0: 喷油器A2故障
+    # bit1: 喷油器A2故障
+    # bit2: 喷油器A1故障
+    # bit3: 喷油器A1故障
+    # bit4: 喷油器A4故障
+    # bit5: 喷油器A4故障
+    # bit6: 喷油器A3故障
+    # bit7: 喷油器A3故障
+uint8 sens_state_inj_b
+    # bit0: 喷油器B2故障
+    # bit1: 喷油器B2故障
+    # bit2: 喷油器B1故障
+    # bit3: 喷油器B1故障
+    # bit4: 喷油器B4故障
+    # bit5: 喷油器B4故障
+    # bit6: 喷油器B3故障
+    # bit7: 喷油器B3故障
+uint8 sens_state_ign_coil
+    # bit0: 点火线圈A34
+    # bit1: 点火线圈A34
+    # bit2: 点火线圈A12
+    # bit3: 点火线圈A12
+    # bit4: 点火线圈B34
+    # bit5: 点火线圈B34
+    # bit6: 点火线圈B12
+    # bit7: 点火线圈B12
+uint8 sens_state_pwm
+    # bit0: 主喷油器组判定状态
+    # bit1: 主喷油器组判定状态
+    # bit2: 系统切换线PWM输出
+    # bit3: 系统切换线PWM输出
+    # bit4: PWM信号线诊断状态ECUB
+    # bit5: PWM信号线诊断状态ECUB
+    # bit6: PWM输出ECUB
+    # bit7: PWM输出ECUB
+
+
+float16 voltage             # Volt
+float16 current             # Ampere. Can be negative in case of a regenerative braking.
+float16 temperature         # Kelvin
+
+int18 rpm                   # Negative value indicates reverse rotation
+
+uint7 power_rating_pct      # Instant demand factor in percent (percent of maximum power); range 0% to 127%.
+
+uint5 esc_index             # zero is first ESC. This should match the index into the cmd[] array in RawCommand
